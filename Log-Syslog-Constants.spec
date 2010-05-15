@@ -5,27 +5,21 @@
 %define VERSION %(grep 'VERSION =' lib/Log/Syslog/Constants.pm | perl -nle '/([0-9.]+)/ && print $1')
 
 name:      perl-Log-Syslog-Constants
-summary:   Log-Syslog-Constants - Log::Syslog::Constants - Perl extension for sending syslog messages over TCP or UDP with minimal CPU overhead.
+summary:   Log-Syslog-Constants - Log::Syslog::Constants - Perl extension containing syslog priority constants as defined in RFC3164.
 version:   %{VERSION}
 release:   1
-vendor:    Adam Thomason <athomason@sixapart.com>
-packager:  Arix International <cpan2rpm@arix.com>
+vendor:    Adam Thomason <athomason@cpan.org>
+packager:  Six Apart Ltd <cpan@sixapart.com>
 license:   Artistic
 group:     Applications/CPAN
 url:       http://www.cpan.org
 buildroot: %{_tmppath}/%{name}-%{version}-%(id -u -n)
-buildarch: x86_64
+buildarch: noarch
 prefix:    %(echo %{_prefix})
 source:    Log-Syslog-Constants-%{version}.tar.gz
 
 %description
-This module sends syslog messages over a network socket.
-
-#
-# This package was generated automatically with the cpan2rpm
-# utility.  To get this software or for more information
-# please visit: http://perl.arix.com/
-#
+Perl extension containing syslog priority constants as defined in RFC3164.
 
 %prep
 %setup -q -n %{pkgname}-%{version} 
@@ -45,7 +39,7 @@ CFLAGS="$RPM_OPT_FLAGS"
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-%{makeinstall} `%{__perl} -MExtUtils::MakeMaker -e ' print \$ExtUtils::MakeMaker::VERSION <= 6.05 ? qq|PREFIX=%{buildroot}%{_prefix}| : qq|DESTDIR=%{buildroot}| '`
+%{makeinstall} INSTALLDIRS=site `%{__perl} -MExtUtils::MakeMaker -e ' print \$ExtUtils::MakeMaker::VERSION <= 6.05 ? qq|PREFIX=%{buildroot}%{_prefix}| : qq|DESTDIR=%{buildroot}| '`
 
 cmd=/usr/share/spec-helper/compress_files
 [ -x $cmd ] || cmd=/usr/lib/rpm/brp-compress
