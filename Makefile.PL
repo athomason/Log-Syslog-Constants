@@ -1,4 +1,4 @@
-use 5.008000;
+use 5.00602;
 use ExtUtils::MakeMaker;
 WriteMakefile(
     NAME            => 'Log::Syslog::Constants',

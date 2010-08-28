@@ -1,44 +1,42 @@
 package Log::Syslog::Constants;
 
-use 5.008000;
+use 5.6.2;
 use strict;
 use warnings;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
-use constant {
-    # severities
-    LOG_EMERG       => 0, # system is unusable
-    LOG_ALERT       => 1, # action must be taken immediately
-    LOG_CRIT        => 2, # critical conditions
-    LOG_ERR         => 3, # error conditions
-    LOG_WARNING     => 4, # warning conditions
-    LOG_NOTICE      => 5, # normal but significant condition
-    LOG_INFO        => 6, # informational
-    LOG_DEBUG       => 7, # debug-level messages
+# severities
+use constant LOG_EMERG      => 0; # system is unusable
+use constant LOG_ALERT      => 1; # action must be taken immediately
+use constant LOG_CRIT       => 2; # critical conditions
+use constant LOG_ERR        => 3; # error conditions
+use constant LOG_WARNING    => 4; # warning conditions
+use constant LOG_NOTICE     => 5; # normal but significant condition
+use constant LOG_INFO       => 6; # informational
+use constant LOG_DEBUG      => 7; # debug-level messages
 
-    # facilities
-    LOG_KERN        => 0, # kernel messages
-    LOG_USER        => 1, # random user-level messages
-    LOG_MAIL        => 2, # mail system
-    LOG_DAEMON      => 3, # system daemons
-    LOG_AUTH        => 4, # security/authorization messages
-    LOG_SYSLOG      => 5, # messages generated internally by syslogd
-    LOG_LPR         => 6, # line printer subsystem
-    LOG_NEWS        => 7, # network news subsystem
-    LOG_UUCP        => 8, # UUCP subsystem
-    LOG_CRON        => 9, # clock daemon
-    LOG_AUTHPRIV    => 10, # security/authorization messages (private)
-    LOG_FTP         => 11, # ftp daemon
-    LOG_LOCAL0      => 16, # reserved for local use
-    LOG_LOCAL1      => 17, # reserved for local use
-    LOG_LOCAL2      => 18, # reserved for local use
-    LOG_LOCAL3      => 19, # reserved for local use
-    LOG_LOCAL4      => 20, # reserved for local use
-    LOG_LOCAL5      => 21, # reserved for local use
-    LOG_LOCAL6      => 22, # reserved for local use
-    LOG_LOCAL7      => 23, # reserved for local use
-};
+# facilities
+use constant LOG_KERN       => 0; # kernel messages
+use constant LOG_USER       => 1; # random user-level messages
+use constant LOG_MAIL       => 2; # mail system
+use constant LOG_DAEMON     => 3; # system daemons
+use constant LOG_AUTH       => 4; # security/authorization messages
+use constant LOG_SYSLOG     => 5; # messages generated internally by syslogd
+use constant LOG_LPR        => 6; # line printer subsystem
+use constant LOG_NEWS       => 7; # network news subsystem
+use constant LOG_UUCP       => 8; # UUCP subsystem
+use constant LOG_CRON       => 9; # clock daemon
+use constant LOG_AUTHPRIV   => 10; # security/authorization messages (private)
+use constant LOG_FTP        => 11; # ftp daemon
+use constant LOG_LOCAL0     => 16; # reserved for local use
+use constant LOG_LOCAL1     => 17; # reserved for local use
+use constant LOG_LOCAL2     => 18; # reserved for local use
+use constant LOG_LOCAL3     => 19; # reserved for local use
+use constant LOG_LOCAL4     => 20; # reserved for local use
+use constant LOG_LOCAL5     => 21; # reserved for local use
+use constant LOG_LOCAL6     => 22; # reserved for local use
+use constant LOG_LOCAL7     => 23; # reserved for local use
 
 my %_severities_by_name = (
     emerg    => LOG_EMERG,
@@ -171,7 +169,7 @@ get_severity('info') == LOG_INFO.
 
 =head1 AUTHOR
 
-Adam Thomason, E<lt>athomason@sixapart.comE<gt>
+Adam Thomason, E<lt>athomason@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
