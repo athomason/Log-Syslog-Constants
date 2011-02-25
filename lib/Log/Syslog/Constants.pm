@@ -121,7 +121,7 @@ defined in RFC3164.
 
   use Log::Syslog::Constants ':all';
 
-  my @severities = (
+  @severities = (
     LOG_EMERG, LOG_ALERT, LOG_CRIT, LOG_ERR, LOG_WARNING, LOG_NOTICE, LOG_INFO,
     LOG_DEBUG
   );
@@ -134,7 +134,7 @@ defined in RFC3164.
   );
 
   $info_constant = get_severity('INFO');
-  $local0_constant = get_severity('local0');
+  $local0_constant = get_facility('local0');
 
 =head1 DESCRIPTION
 
@@ -173,7 +173,7 @@ Adam Thomason, E<lt>athomason@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2010 by Six Apart, Ltd.
+Copyright (C) 2010 by Say Media, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.5 or,
