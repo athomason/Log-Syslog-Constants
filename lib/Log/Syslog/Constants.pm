@@ -4,7 +4,7 @@ use 5.6.2;
 use strict;
 use warnings;
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 # severities
 use constant LOG_EMERG      => 0; # system is unusable
@@ -138,18 +138,18 @@ defined in RFC3164.
 
 =head1 DESCRIPTION
 
-Syslog messages as standardized in RFC3164 embed a priority number (the PRI
+Syslog messages--as standardized in RFC3164--embed a priority number (the PRI
 part) which is composed of a severity and a facility value. The constants which
 encode these values are specified in section 4.1.1, and are made available by
-this module. For instance, the LOG_FTP exported constant has a value of 11, the
-value for the FTP facility.
+this module. For instance, the exportable LOG_FTP constant has a value of 11,
+the value for the FTP facility.
 
 =head1 EXPORTS
 
-Nothing is exported by default. You may optionally import individual constants,
-all constants for severity and facility levels, or all of them.
+Nothing is exported by default. You may optionally import individual constants
+and functions or groups of them:
 
-  use Log::Syslog::Constants qw(:severities); # LOG_CRIT, LOG_NOTICE, LOG_DEBUG, etc
+  use Log::Syslog::Constants qw(:severities); # LOG_CRIT, LOG_DEBUG, etc
   use Log::Syslog::Constants qw(:facilities); # LOG_CRON, LOG_LOCAL3, etc
   use Log::Syslog::Constants qw(:functions); # get_facility, get_severity
   use Log::Syslog::Constants qw(:all); # all of the above
@@ -158,14 +158,18 @@ all constants for severity and facility levels, or all of them.
 
 =over 4
 
-=item * get_facility
+=item * get_facility($facility_string)
 
-=item * get_severity
+=item * get_severity($severity_string)
 
-These functions may be used to get the constants by string name, e.g.
-get_severity('info') == LOG_INFO.
+These functions look up a constant value by name, e.g.
+C<get_severity('info') == LOG_INFO>.
 
 =back
+
+=head1 SEE ALSO
+
+L<RFC3164|http://www.ietf.org/rfc/rfc3164.txt>
 
 =head1 AUTHOR
 
@@ -173,7 +177,7 @@ Adam Thomason, E<lt>athomason@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2010 by Say Media, Inc.
+Copyright (C) 2010-2011 by Say Media, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.5 or,

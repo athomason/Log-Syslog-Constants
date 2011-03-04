@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 57;
+use Test::More tests => 59;
 
 BEGIN { use_ok('Log::Syslog::Constants', ':all') };
 
@@ -66,3 +66,6 @@ is(get_facility('local4'),   LOG_LOCAL4,   'named LOG_LOCAL4');
 is(get_facility('local5'),   LOG_LOCAL5,   'named LOG_LOCAL5');
 is(get_facility('local6'),   LOG_LOCAL6,   'named LOG_LOCAL6');
 is(get_facility('local7'),   LOG_LOCAL7,   'named LOG_LOCAL7');
+
+is(get_severity('WARNING'),  LOG_WARNING,  'get_severity is case insensitive');
+is(get_facility('SYSLOG'),   LOG_SYSLOG,   'get_facility is case insensitive');
