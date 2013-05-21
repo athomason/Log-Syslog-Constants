@@ -1,6 +1,6 @@
 package Log::Syslog::Constants;
 
-use 5.6.2;
+use 5.006002;
 use strict;
 use warnings;
 
